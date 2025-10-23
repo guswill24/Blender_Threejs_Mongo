@@ -31,6 +31,7 @@ Crear `backend/.env` con:
 ```env
 MONGO_URI=mongodb://127.0.0.1:27017/threejs_blocks
 PORT=3001
+API_URL=http://localhost:3001/api/blocks/batch
 ```
 
 Opcionalmente, en `game-project/.env` (o `.env.local`) para apuntar al backend:

@@ -10,7 +10,6 @@ import World from './World/World.js'
 import Resources from './Utils/Resources.js'
 import sources from './sources.js'
 import Sounds from './World/Sound.js'
-import Raycaster from './Utils/Raycaster.js'
 import KeyboardControls from './Utils/KeyboardControls.js'
 import GameTracker from './Utils/GameTracker.js'
 import Physics from './Utils/Physics.js'
@@ -68,7 +67,6 @@ export default class Experience {
       }
     })
 
-    
     // Cámara y renderer
     this.camera = new Camera(this)
     this.renderer = new Renderer(this)
@@ -79,13 +77,8 @@ export default class Experience {
     this.vrDolly.add(this.camera.instance)
     this.scene.add(this.vrDolly)
 
-
     // Socket
     //this.socketManager = new SocketManager(this)
-
-    // Raycaster
-    this.raycaster = new Raycaster(this)
-
 
     // Modal y VR
     this.modal = new ModalManager({ container: document.body })
@@ -114,13 +107,8 @@ export default class Experience {
           document.exitFullscreen()
         }
       },
-      onCancelGame: () => this.tracker.handleCancelGame() // 🔴 aquí se integra la lógica central
+      onCancelGame: () => this.tracker.handleCancelGame()
     })
-
-    //Generar obstaculos
-    this._startObstacleWaves()
-
-
 
     // Activar tiempos
     if (this.tracker) {
@@ -128,7 +116,6 @@ export default class Experience {
     }
 
     this.tracker = new GameTracker({ modal: this.modal, menu: this.menu })
-
 
     // Mundo
     this.world = new World(this)
@@ -231,7 +218,6 @@ export default class Experience {
     this.physics.update(delta)
 
     this.socketManager?.update()
-    //linea para activar el debugger
     // if (this.debugger) this.debugger.update()
   }
 
@@ -240,46 +226,8 @@ export default class Experience {
       const pos = this.world.robot.group.position
       this.camera.instance.position.copy(pos).add(new THREE.Vector3(0, 1.6, 0))
       this.camera.instance.lookAt(pos.clone().add(new THREE.Vector3(0, 1.6, -1)))
-      // console.log('🎯 Cámara ajustada a robot en VR')
     }
   }
-
-  //Generar olas de cubos
-  _startObstacleWaves() {
-    this.obstacleWaveCount = 10
-    this.maxObstacles = 50
-    this.currentObstacles = []
-    const delay = 30000
-
-    const spawnWave = () => {
-      if (this.obstacleWavesDisabled) return
-
-      for (let i = 0; i < this.obstacleWaveCount; i++) {
-        const obstacle = this.raycaster.generateRandomObstacle?.()
-        if (obstacle) {
-          this.currentObstacles.push(obstacle)
-        }
-      }
-
-      // Mantener máximo 50 obstáculos
-      while (this.currentObstacles.length > this.maxObstacles) {
-        const oldest = this.currentObstacles.shift()
-        if (oldest) {
-          // Usar el removedor centralizado para desregistrar tick y liberar recursos
-          this.raycaster._removeObstacle(oldest)
-        }
-      }
-
-      // Mantener constante el tamaño de la oleada para evitar crecimiento exponencial
-      // this.obstacleWaveCount += 10
-      this.obstacleWaveTimeout = setTimeout(spawnWave, delay)
-    }
-
-    // Inicia primera oleada tras 30s
-    this.obstacleWaveTimeout = setTimeout(spawnWave, 30000)
-  }
-
-
 
   destroy() {
     this.sizes.off('resize')
@@ -293,7 +241,6 @@ export default class Experience {
         } else {
           child.material.dispose?.()
         }
-
       }
     })
 
@@ -304,9 +251,8 @@ export default class Experience {
 
   startGame() {
     console.log('🎮 Juego iniciado')
-    this.isThirdPerson = true // ⬅️ asegurar el modo
+    this.isThirdPerson = true
     this.tracker.start()
-    this._startObstacleWaves()
     if (this.menu && this.menu.toggleButton && this.menu.toggleButton.style) {
       this.menu.toggleButton.style.display = 'block'
     }
@@ -317,48 +263,30 @@ export default class Experience {
     console.log('🎮 Iniciando partida...')
   }
 
-
-
   resetGame() {
     console.log('♻️ Reiniciando juego...')
-    // Notificar desconexión al servidor
     this.socketManager?.socket?.disconnect()
 
-    // Limpieza explícita del HUD
     if (this.menu) this.menu.destroy()
-
-    // Limpieza del temporizador viejo
     if (this.tracker) this.tracker.destroy()
-
-    //limpiar fantasmas de robot antiguos
     if (this.socketManager) {
       this.socketManager.destroy()
     }
 
-    // Destruir todo
     this.destroy()
-
-    // Reiniciar instancia
     instance = null
     const newExperience = new Experience(this.canvas)
-
-    // Forzar modo tercera persona
     newExperience.isThirdPerson = true
 
-    // Limpiar botón cancelar
     const cancelBtn = document.getElementById('cancel-button')
     if (cancelBtn) cancelBtn.remove()
 
-
-    // Esconder botones en la nueva instancia:
     newExperience.tracker?.hideGameButtons?.()
   }
 
-
   resetGameToFirstLevel() {
-    console.log('♻️ Reiniciando al nivel');
+    console.log('♻️ Reiniciando al nivel')
 
-    // 💀 Destruir enemigo previo si existe
     if (Array.isArray(this.world.enemies)) {
       this.world.enemies.forEach(e => e?.destroy?.())
       this.world.enemies = []
@@ -367,28 +295,19 @@ export default class Experience {
       this.world.enemy = null
     }
 
-    // Resetear variables de World
-    this.world.points = 0;
-    this.world.robot.points = 0;
-    this.world.loader.prizes = [];
+    this.world.points = 0
+    this.world.robot.points = 0
+    this.world.loader.prizes = []
     this.world.defeatTriggered = false
 
-    // Resetear nivel actual
-    this.world.levelManager.currentLevel = 1;
+    this.world.levelManager.currentLevel = 1
+    this.world.clearCurrentScene()
+    this.world.loadLevel(1)
 
-    // Limpiar la escena
-    this.world.clearCurrentScene();
+    this.tracker.destroy()
+    this.tracker = new GameTracker({ modal: this.modal, menu: this.menu })
+    this.tracker.start()
 
-    // Cargar nivel 1 de nuevo
-    this.world.loadLevel(1);
-
-    // Reiniciar el seguimiento de tiempo
-    this.tracker.destroy(); // Detener el loop anterior
-    this.tracker = new GameTracker({ modal: this.modal, menu: this.menu });
-    this.tracker.start();
-
-    console.log('✅ Juego reiniciado en nivel 1.');
+    console.log('✅ Juego reiniciado en nivel 1.')
   }
-
-
 }

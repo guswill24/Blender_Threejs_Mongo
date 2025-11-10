@@ -1,23 +1,7 @@
 [
     {
-        "name": "building-a_lev1",
-        "x": 9.318333625793457,
-        "y": 0.0,
-        "z": -9.797852516174316,
-        "level": 1,
-        "role": "default"
-    },
-    {
         "name": "building-b_lev1",
         "x": 3.542842388153076,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "building-c_lev1",
-        "x": -10.66341495513916,
         "y": 0.0,
         "z": -0.0,
         "level": 1,
@@ -40,98 +24,58 @@
         "role": "default"
     },
     {
-        "name": "building-f_lev1",
-        "x": 11.259921073913574,
-        "y": 0.0,
-        "z": -5.287147045135498,
-        "level": 1,
-        "role": "default"
-    },
-    {
         "name": "building-g_lev1",
-        "x": -9.382611274719238,
+        "x": -12.201306343078613,
         "y": 0.0,
-        "z": 5.354636192321777,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "building-h_lev1",
-        "x": 5.980010986328125,
-        "y": 0.0,
-        "z": -7.008603572845459,
+        "z": 20.433504104614258,
         "level": 1,
         "role": "default"
     },
     {
         "name": "building-i_lev1",
-        "x": -3.9880950450897217,
+        "x": -15.788040161132812,
         "y": 0.0,
-        "z": 7.135072708129883,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "building-j_lev1",
-        "x": -5.676366806030273,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "building-k_lev1",
-        "x": -5.779455661773682,
-        "y": 0.0,
-        "z": -2.4542593955993652,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "building-l_lev1",
-        "x": -5.8462042808532715,
-        "y": 0.0,
-        "z": 2.7230465412139893,
+        "z": 7.982816696166992,
         "level": 1,
         "role": "default"
     },
     {
         "name": "building-m_lev1",
-        "x": -5.346464157104492,
+        "x": -11.287847518920898,
         "y": 0.0,
-        "z": -7.366352558135986,
+        "z": -19.86590576171875,
         "level": 1,
         "role": "default"
     },
     {
         "name": "building-n_lev1",
-        "x": 0.0,
+        "x": 17.6591796875,
         "y": 0.0,
-        "z": -5.2205305099487305,
+        "z": 14.921280860900879,
         "level": 1,
         "role": "default"
     },
     {
         "name": "building-skyscraper-a_lev1",
-        "x": -11.162116050720215,
+        "x": -13.70801830291748,
         "y": 0.0,
-        "z": -4.551608085632324,
+        "z": -8.183131217956543,
         "level": 1,
         "role": "default"
     },
     {
         "name": "building-skyscraper-b_lev1",
-        "x": 0.0,
+        "x": 11.975890159606934,
         "y": 0.0,
-        "z": -8.768001556396484,
+        "z": -21.097511291503906,
         "level": 1,
         "role": "default"
     },
     {
         "name": "building-skyscraper-c_lev1",
-        "x": 0.0,
-        "y": 0.0,
-        "z": 5.614484786987305,
+        "x": -2.254887342453003,
+        "y": -0.6190915703773499,
+        "z": 17.323986053466797,
         "level": 1,
         "role": "default"
     },
@@ -145,9 +89,9 @@
     },
     {
         "name": "building-skyscraper-e_lev1",
-        "x": 3.4667911529541016,
+        "x": 6.96073055267334,
         "y": 0.0,
-        "z": 5.8155412673950195,
+        "z": 8.899663925170898,
         "level": 1,
         "role": "default"
     },
@@ -200,170 +144,18 @@
         "role": "default"
     },
     {
-        "name": "low-detail-building-a_lev1",
-        "x": 11.30880069732666,
-        "y": 0.0,
-        "z": 4.9182515144348145,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-b_lev1",
-        "x": -8.263486862182617,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-c_lev1",
-        "x": -12.934700012207031,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-d_lev1",
-        "x": 14.344972610473633,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-e_lev1",
-        "x": 16.59615135192871,
-        "y": 0.0,
-        "z": -5.131755352020264,
-        "level": 1,
-        "role": "default"
-    },
-    {
         "name": "low-detail-building-f_lev1",
-        "x": 19.596054077148438,
+        "x": 21.25653648376465,
         "y": 0.0,
         "z": -0.0,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-g_lev1",
-        "x": 2.703481912612915,
-        "y": 0.0,
-        "z": -10.234652519226074,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-h_lev1",
-        "x": 15.938251495361328,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-i_lev1",
-        "x": -1.843883752822876,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-j_lev1",
-        "x": 0.0,
-        "y": 0.0,
-        "z": 8.164011001586914,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-k_lev1",
-        "x": -5.629616737365723,
-        "y": 0.0,
-        "z": 9.560917854309082,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-l_lev1",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -11.021871566772461,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-m_lev1",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -12.956073760986328,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-n_lev1",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-wide-a_lev1",
-        "x": -2.7358598709106445,
-        "y": 0.0,
-        "z": -8.762773513793945,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "low-detail-building-wide-b_lev1",
-        "x": 11.835875511169434,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "cube_lev1",
-        "x": -5.529314994812012,
-        "y": 1.238703727722168,
-        "z": -14.800456047058105,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "cube.001_lev1",
-        "x": -11.883330345153809,
-        "y": 1.268571376800537,
-        "z": -15.002349853515625,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "cube.002_lev1",
-        "x": -1.946211338043213,
-        "y": 1.257283091545105,
-        "z": -14.879010200500488,
-        "level": 1,
-        "role": "default"
-    },
-    {
-        "name": "cube.003_lev1",
-        "x": -8.67922306060791,
-        "y": 1.296460747718811,
-        "z": -14.92817497253418,
         "level": 1,
         "role": "default"
     },
     {
         "name": "coinobj_coin_0_lev1",
-        "x": 18.156850814819336,
+        "x": 21.73322105407715,
         "y": 2.2354416847229004,
-        "z": -10.025790214538574,
+        "z": -17.89676284790039,
         "level": 1,
         "role": "default"
     },
@@ -386,208 +178,56 @@
     {
         "name": "coinobj_coin_0.003_lev1",
         "x": -19.91843032836914,
-        "y": 2.295731544494629,
-        "z": 13.660850524902344,
+        "y": 2.295731782913208,
+        "z": 17.039169311523438,
         "level": 1,
         "role": "default"
     },
-      {
-        "name": "corridor_lev2",
-        "x": 7.550528049468994,
-        "y": 0.0,
-        "z": 19.126209259033203,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "corridor-corner_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "corridor-end_lev2",
-        "x": 21.804065704345703,
-        "y": 0.0,
-        "z": 31.507150650024414,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "corridor-intersection_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "corridor-junction_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "corridor-transition_lev2",
-        "x": -11.166017532348633,
-        "y": 0.0,
-        "z": -12.154666900634766,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "corridor-wide_lev2",
-        "x": -21.194202423095703,
-        "y": 0.0,
-        "z": -12.070281982421875,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "corridor-wide-corner_lev2",
-        "x": 27.913063049316406,
-        "y": 0.0,
-        "z": 29.724994659423828,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "corridor-wide-end_lev2",
-        "x": 19.945602416992188,
-        "y": 0.0,
-        "z": 21.710281372070312,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "corridor-wide-intersection_lev2",
-        "x": -0.24486662447452545,
-        "y": 0.0,
-        "z": 18.916608810424805,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "corridor-wide-junction_lev2",
-        "x": -0.24486662447452545,
-        "y": 0.0,
-        "z": 18.916608810424805,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "gate_lev2",
-        "x": 8.713128089904785,
-        "y": 0.0,
-        "z": 33.62648010253906,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "gate-door_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "gate-door-window_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
+     {
         "name": "room-corner_lev2",
-        "x": -27.697166442871094,
+        "x": -30.397153854370117,
         "y": 0.0,
-        "z": -0.0,
+        "z": -0.3457660675048828,
         "level": 2,
         "role": "default"
     },
     {
         "name": "room-large_lev2",
-        "x": 22.83473014831543,
+        "x": 1.0886573791503906,
         "y": 0.0,
-        "z": -0.0,
+        "z": -2.114284038543701,
         "level": 2,
         "role": "default"
     },
     {
         "name": "room-large-variation_lev2",
-        "x": -23.90850830078125,
+        "x": -28.567535400390625,
         "y": 0.0,
-        "z": 18.916608810424805,
+        "z": 25.48639488220215,
         "level": 2,
         "role": "default"
     },
     {
         "name": "room-small_lev2",
-        "x": -0.24486662447452545,
+        "x": 22.35194969177246,
         "y": 0.0,
-        "z": 18.916608810424805,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "room-small-variation_lev2",
-        "x": -0.24486662447452545,
-        "y": 0.0,
-        "z": -13.727758407592773,
+        "z": 23.947410583496094,
         "level": 2,
         "role": "default"
     },
     {
         "name": "room-wide_lev2",
-        "x": 0.0,
+        "x": -21.984508514404297,
         "y": 0.0,
-        "z": -25.706748962402344,
+        "z": -29.84077262878418,
         "level": 2,
         "role": "default"
     },
     {
         "name": "room-wide-variation_lev2",
-        "x": 21.777070999145508,
+        "x": 20.90287971496582,
         "y": 0.0,
-        "z": -25.1106014251709,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "stairs_lev2",
-        "x": 26.643310546875,
-        "y": 0.0,
-        "z": -0.12441062927246094,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "stairs-wide_lev2",
-        "x": 17.600990295410156,
-        "y": 0.0,
-        "z": -0.47153663635253906,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "template-corner_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "template-detail_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
+        "z": -23.324195861816406,
         "level": 2,
         "role": "default"
     },
@@ -596,14 +236,6 @@
         "x": 0.0,
         "y": 0.0,
         "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "template-floor-big_lev2",
-        "x": 27.915058135986328,
-        "y": 0.0,
-        "z": 21.595600128173828,
         "level": 2,
         "role": "default"
     },
@@ -624,130 +256,34 @@
         "role": "default"
     },
     {
-        "name": "template-floor-layer_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "template-floor-layer-raised_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "template-wall_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "template-wall-corner_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "template-wall-detail-a_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "template-wall-half_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "template-wall-stairs_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
-        "name": "template-wall-top_lev2",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 2,
-        "role": "default"
-    },
-    {
         "name": "coinobj_coin_0_lev2",
-        "x": 27.732898712158203,
-        "y": 0.6094237565994263,
-        "z": 27.083913803100586,
+        "x": 22.970165252685547,
+        "y": 0.6094238758087158,
+        "z": 23.076509475708008,
         "level": 2,
         "role": "default"
     },
     {
         "name": "coinobj_coin_0.001_lev2",
-        "x": -23.47178077697754,
-        "y": 0.7176756262779236,
-        "z": 17.544330596923828,
+        "x": 0.9251480102539062,
+        "y": 0.7176752686500549,
+        "z": -1.2640933990478516,
         "level": 2,
         "role": "default"
     },
     {
         "name": "coinobj_coin_0.002_lev2",
-        "x": 4.8760271072387695,
+        "x": -22.919689178466797,
         "y": 1.8821057081222534,
-        "z": -28.080862045288086,
+        "z": -28.080860137939453,
         "level": 2,
         "role": "default"
     },
-    {
-        "name": "bench_lev3",
-        "x": 5.729097366333008,
-        "y": 0.0,
-        "z": -3.00759220123291,
-        "level": 3,
-        "role": "default"
-    },
-    {
+        {
         "name": "bench-short_lev3",
-        "x": 6.981921672821045,
+        "x": 20.512588500976562,
         "y": 0.0,
         "z": -2.2405638694763184,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "cabin-corner_lev3",
-        "x": 0.0,
-        "y": 0.0,
-        "z": -6.575492858886719,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "cabin-corner-bottom_lev3",
-        "x": 4.669864177703857,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "cabin-corner-logs_lev3",
-        "x": 10.037189483642578,
-        "y": 0.0,
-        "z": -2.4145586490631104,
         "level": 3,
         "role": "default"
     },
@@ -755,7 +291,7 @@
         "name": "cabin-door-rotate_lev3",
         "x": 4.781909942626953,
         "y": 0.0,
-        "z": 0.7896840572357178,
+        "z": 1.7106115818023682,
         "level": 3,
         "role": "default"
     },
@@ -768,256 +304,80 @@
         "role": "default"
     },
     {
-        "name": "cabin-doorway-right_lev3",
-        "x": 1.7304909229278564,
-        "y": 0.0,
-        "z": 0.6059410572052002,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "cabin-fence_lev3",
-        "x": 6.983087539672852,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "cabin-overhang-door-rotate_lev3",
-        "x": -0.3742004632949829,
-        "y": 0.0,
-        "z": 0.4650571346282959,
-        "level": 3,
-        "role": "default"
-    },
-    {
         "name": "cabin-roof-dormer_lev3",
-        "x": -3.392603635787964,
+        "x": -7.561051368713379,
         "y": 0.0,
-        "z": -3.6960599422454834,
+        "z": 11.850443840026855,
         "level": 3,
         "role": "default"
     },
     {
         "name": "cabin-roof-point_lev3",
-        "x": 1.0126781463623047,
-        "y": 0.06771233677864075,
-        "z": -3.882859230041504,
+        "x": 4.717184543609619,
+        "y": 6.856362342834473,
+        "z": 4.058239936828613,
         "level": 3,
         "role": "default"
     },
     {
         "name": "cabin-roof-snow-dormer_lev3",
-        "x": -1.3745946884155273,
+        "x": 11.846748352050781,
         "y": 0.0,
-        "z": -3.6171817779541016,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "cabin-roof-snow-point_lev3",
-        "x": -5.684665679931641,
-        "y": 0.0,
-        "z": -3.6818270683288574,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "cabin-window-c_lev3",
-        "x": 0.7097655534744263,
-        "y": 0.0,
-        "z": 0.583951473236084,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "cabin-window-large_lev3",
-        "x": 3.025482654571533,
-        "y": 0.0,
-        "z": 0.9169158935546875,
+        "z": 13.622037887573242,
         "level": 3,
         "role": "default"
     },
     {
         "name": "festivus-pole_lev3",
-        "x": -4.686856746673584,
+        "x": 2.5683929920196533,
         "y": 0.0,
-        "z": 2.974161148071289,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "floor-stone_lev3",
-        "x": 2.395918607711792,
-        "y": 0.0,
-        "z": -13.264457702636719,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "floor-wood_lev3",
-        "x": -5.202739715576172,
-        "y": 0.0,
-        "z": -11.089693069458008,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "gingerbread-man_lev3",
-        "x": 0.15892696380615234,
-        "y": 0.0,
-        "z": 3.6312255859375,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "gingerbread-woman_lev3",
-        "x": -5.0590033531188965,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "hanukkah-menorah-candles_lev3",
-        "x": 3.798719644546509,
-        "y": 0.8217941522598267,
-        "z": -1.3598867654800415,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "kwanzaa-kinara-alternative_lev3",
-        "x": 3.7427077293395996,
-        "y": 0.0,
-        "z": -3.7300870418548584,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "lantern_lev3",
-        "x": -6.598400115966797,
-        "y": 0.0,
-        "z": 0.12200260162353516,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "lantern-hanging_lev3",
-        "x": -4.705585956573486,
-        "y": 1.9551972150802612,
-        "z": 2.7512660026550293,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "lights-red_lev3",
-        "x": 1.833145260810852,
-        "y": 0.6708885431289673,
-        "z": 1.3201310634613037,
+        "z": -9.637940406799316,
         "level": 3,
         "role": "default"
     },
     {
         "name": "nutcracker_lev3",
-        "x": -7.217489242553711,
+        "x": 16.723854064941406,
         "y": 0.8333761692047119,
-        "z": -1.5676648616790771,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "present-a-cube_lev3",
-        "x": -3.7308905124664307,
-        "y": 0.0,
-        "z": -0.0,
+        "z": 2.7520041465759277,
         "level": 3,
         "role": "default"
     },
     {
         "name": "reindeer_lev3",
-        "x": 2.169912815093994,
+        "x": -5.197894096374512,
         "y": 0.0,
-        "z": -0.9214192628860474,
+        "z": -6.326932907104492,
         "level": 3,
         "role": "default"
     },
     {
         "name": "rocks-large_lev3",
-        "x": 7.717044830322266,
-        "y": 0.0,
-        "z": -15.017681121826172,
+        "x": 21.332311630249023,
+        "y": 0.12151086330413818,
+        "z": -29.42776870727539,
         "level": 3,
         "role": "default"
     },
     {
         "name": "rocks-medium_lev3",
-        "x": -2.685417652130127,
+        "x": 5.525474548339844,
         "y": 0.0,
-        "z": -9.358027458190918,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "rocks-small_lev3",
-        "x": -0.22182226181030273,
-        "y": 0.0,
-        "z": -17.52872657775879,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "sled_lev3",
-        "x": 6.9913129806518555,
-        "y": 0.0,
-        "z": -7.967363357543945,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "sled-long_lev3",
-        "x": 6.973854064941406,
-        "y": 0.0,
-        "z": -8.883544921875,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "snow-bunker_lev3",
-        "x": 3.8662891387939453,
-        "y": 0.0,
-        "z": -17.293970108032227,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "snow-flat_lev3",
-        "x": -6.794267654418945,
-        "y": 0.0,
-        "z": -8.61651611328125,
+        "z": -31.962371826171875,
         "level": 3,
         "role": "default"
     },
     {
         "name": "snow-flat-large_lev3",
-        "x": -4.113977909088135,
+        "x": -15.20793628692627,
         "y": 0.0,
-        "z": -16.05552101135254,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "snow-pile_lev3",
-        "x": -7.409005165100098,
-        "y": 0.0,
-        "z": -14.308703422546387,
+        "z": -28.577301025390625,
         "level": 3,
         "role": "default"
     },
     {
         "name": "snowman_lev3",
-        "x": 0.0,
+        "x": -9.520140647888184,
         "y": 0.0,
         "z": 2.888347625732422,
         "level": 3,
@@ -1025,81 +385,25 @@
     },
     {
         "name": "snowman-hat_lev3",
-        "x": -3.1765780448913574,
+        "x": -22.48324203491211,
         "y": 0.0,
-        "z": 1.9399648904800415,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "train-tender_lev3",
-        "x": 0.9090831279754639,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "train-wagon-logs_lev3",
-        "x": 1.3827998638153076,
-        "y": 0.0,
-        "z": -0.0,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "tree_lev3",
-        "x": 6.320021629333496,
-        "y": 0.0,
-        "z": -6.142388820648193,
+        "z": -6.339658737182617,
         "level": 3,
         "role": "default"
     },
     {
         "name": "tree-decorated_lev3",
-        "x": 3.597743034362793,
-        "y": 0.0,
-        "z": -4.95707368850708,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "tree-decorated-snow_lev3",
-        "x": 7.4344482421875,
-        "y": 0.0,
-        "z": -3.906717538833618,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "tree-snow-a_lev3",
-        "x": 5.906242847442627,
-        "y": 0.0,
-        "z": -9.218660354614258,
+        "x": -21.045276641845703,
+        "y": 2.001697540283203,
+        "z": -29.7222843170166,
         "level": 3,
         "role": "default"
     },
     {
         "name": "tree-snow-b_lev3",
-        "x": 2.4187538623809814,
+        "x": 23.22379493713379,
         "y": 0.0,
-        "z": -7.76687479019165,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "tree-snow-c_lev3",
-        "x": 4.635936260223389,
-        "y": 0.0,
-        "z": -11.299453735351562,
-        "level": 3,
-        "role": "default"
-    },
-    {
-        "name": "wreath_lev3",
-        "x": -4.792540550231934,
-        "y": 0.6737302541732788,
-        "z": 3.165522336959839,
+        "z": -13.969278335571289,
         "level": 3,
         "role": "default"
     },
@@ -1113,25 +417,57 @@
     },
     {
         "name": "coinobj_coin_0_lev3",
-        "x": -6.918415069580078,
+        "x": -20.140378952026367,
         "y": 2.0353188514709473,
-        "z": -11.880037307739258,
+        "z": -27.2376766204834,
         "level": 3,
         "role": "default"
     },
     {
         "name": "coinobj_coin_0.001_lev3",
-        "x": -14.89566707611084,
+        "x": -18.353002548217773,
         "y": 2.0353188514709473,
-        "z": 9.00496768951416,
+        "z": 12.855881690979004,
         "level": 3,
         "role": "default"
     },
     {
         "name": "coinobj_coin_0.002_lev3",
-        "x": 14.940898895263672,
+        "x": 22.27223014831543,
         "y": 1.9231709241867065,
-        "z": -16.629070281982422,
+        "z": 10.564250946044922,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated.001_lev3",
+        "x": 12.911979675292969,
+        "y": 0.0,
+        "z": -7.52092170715332,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated.002_lev3",
+        "x": -17.701448440551758,
+        "y": 0.0,
+        "z": 5.349050998687744,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated.003_lev3",
+        "x": 2.091559410095215,
+        "y": 0.0,
+        "z": 16.01805305480957,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated.004_lev3",
+        "x": 21.257022857666016,
+        "y": 0.0,
+        "z": 15.525235176086426,
         "level": 3,
         "role": "default"
     }

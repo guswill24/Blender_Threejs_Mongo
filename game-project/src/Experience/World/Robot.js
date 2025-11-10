@@ -21,7 +21,7 @@ export default class Robot {
 
     setModel() {
         this.model = this.resources.items.robotModel.scene
-        this.model.scale.set(1.3, 1.3, 1.3)
+        this.model.scale.set(3.0, 3.0, 3.0)
         this.model.position.set(0, -0.1, 0) // Centrar respecto al cuerpo físico
 
         this.group = new THREE.Group()

@@ -1,0 +1,426 @@
+[
+    {
+        "name": "bench_lev3",
+        "x": 5.729097366333008,
+        "y": 0.0,
+        "z": -3.00759220123291,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "bench-short_lev3",
+        "x": 6.981921672821045,
+        "y": 0.0,
+        "z": -2.2405638694763184,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-corner_lev3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -6.575492858886719,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-corner-bottom_lev3",
+        "x": 4.669864177703857,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-corner-logs_lev3",
+        "x": 10.037189483642578,
+        "y": 0.0,
+        "z": -2.4145586490631104,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-door-rotate_lev3",
+        "x": 4.781909942626953,
+        "y": 0.0,
+        "z": 0.7896840572357178,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-doorway-center_lev3",
+        "x": 4.693367958068848,
+        "y": 0.2784106731414795,
+        "z": 1.1208891868591309,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-doorway-right_lev3",
+        "x": 1.7304909229278564,
+        "y": 0.0,
+        "z": 0.6059410572052002,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-fence_lev3",
+        "x": 6.983087539672852,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-overhang-door-rotate_lev3",
+        "x": -0.3742004632949829,
+        "y": 0.0,
+        "z": 0.4650571346282959,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-roof-dormer_lev3",
+        "x": -3.392603635787964,
+        "y": 0.0,
+        "z": -3.6960599422454834,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-roof-point_lev3",
+        "x": 1.0126781463623047,
+        "y": 0.06771233677864075,
+        "z": -3.882859230041504,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-roof-snow-dormer_lev3",
+        "x": -1.3745946884155273,
+        "y": 0.0,
+        "z": -3.6171817779541016,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-roof-snow-point_lev3",
+        "x": -5.684665679931641,
+        "y": 0.0,
+        "z": -3.6818270683288574,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-window-c_lev3",
+        "x": 0.7097655534744263,
+        "y": 0.0,
+        "z": 0.583951473236084,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-window-large_lev3",
+        "x": 3.025482654571533,
+        "y": 0.0,
+        "z": 0.9169158935546875,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "festivus-pole_lev3",
+        "x": -4.686856746673584,
+        "y": 0.0,
+        "z": 2.974161148071289,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "floor-stone_lev3",
+        "x": 2.395918607711792,
+        "y": 0.0,
+        "z": -13.264457702636719,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "floor-wood_lev3",
+        "x": -5.202739715576172,
+        "y": 0.0,
+        "z": -11.089693069458008,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "gingerbread-man_lev3",
+        "x": 0.15892696380615234,
+        "y": 0.0,
+        "z": 3.6312255859375,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "gingerbread-woman_lev3",
+        "x": -5.0590033531188965,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "hanukkah-menorah-candles_lev3",
+        "x": 3.798719644546509,
+        "y": 0.8217941522598267,
+        "z": -1.3598867654800415,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "kwanzaa-kinara-alternative_lev3",
+        "x": 3.7427077293395996,
+        "y": 0.0,
+        "z": -3.7300870418548584,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "lantern_lev3",
+        "x": -6.598400115966797,
+        "y": 0.0,
+        "z": 0.12200260162353516,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "lantern-hanging_lev3",
+        "x": -4.705585956573486,
+        "y": 1.9551972150802612,
+        "z": 2.7512660026550293,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "lights-red_lev3",
+        "x": 1.833145260810852,
+        "y": 0.6708885431289673,
+        "z": 1.3201310634613037,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "nutcracker_lev3",
+        "x": -7.217489242553711,
+        "y": 0.8333761692047119,
+        "z": -1.5676648616790771,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "present-a-cube_lev3",
+        "x": -3.7308905124664307,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "reindeer_lev3",
+        "x": 2.169912815093994,
+        "y": 0.0,
+        "z": -0.9214192628860474,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "rocks-large_lev3",
+        "x": 7.717044830322266,
+        "y": 0.0,
+        "z": -15.017681121826172,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "rocks-medium_lev3",
+        "x": -2.685417652130127,
+        "y": 0.0,
+        "z": -9.358027458190918,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "rocks-small_lev3",
+        "x": -0.22182226181030273,
+        "y": 0.0,
+        "z": -17.52872657775879,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "sled_lev3",
+        "x": 6.9913129806518555,
+        "y": 0.0,
+        "z": -7.967363357543945,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "sled-long_lev3",
+        "x": 6.973854064941406,
+        "y": 0.0,
+        "z": -8.883544921875,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "snow-bunker_lev3",
+        "x": 3.8662891387939453,
+        "y": 0.0,
+        "z": -17.293970108032227,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "snow-flat_lev3",
+        "x": -6.794267654418945,
+        "y": 0.0,
+        "z": -8.61651611328125,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "snow-flat-large_lev3",
+        "x": -4.113977909088135,
+        "y": 0.0,
+        "z": -16.05552101135254,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "snow-pile_lev3",
+        "x": -7.409005165100098,
+        "y": 0.0,
+        "z": -14.308703422546387,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "snowman_lev3",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 2.888347625732422,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "snowman-hat_lev3",
+        "x": -3.1765780448913574,
+        "y": 0.0,
+        "z": 1.9399648904800415,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "train-tender_lev3",
+        "x": 0.9090831279754639,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "train-wagon-logs_lev3",
+        "x": 1.3827998638153076,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree_lev3",
+        "x": 6.320021629333496,
+        "y": 0.0,
+        "z": -6.142388820648193,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated_lev3",
+        "x": 3.597743034362793,
+        "y": 0.0,
+        "z": -4.95707368850708,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated-snow_lev3",
+        "x": 7.4344482421875,
+        "y": 0.0,
+        "z": -3.906717538833618,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-snow-a_lev3",
+        "x": 5.906242847442627,
+        "y": 0.0,
+        "z": -9.218660354614258,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-snow-b_lev3",
+        "x": 2.4187538623809814,
+        "y": 0.0,
+        "z": -7.76687479019165,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-snow-c_lev3",
+        "x": 4.635936260223389,
+        "y": 0.0,
+        "z": -11.299453735351562,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "wreath_lev3",
+        "x": -4.792540550231934,
+        "y": 0.6737302541732788,
+        "z": 3.165522336959839,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "wreath-decorated_lev3",
+        "x": -17.35831642150879,
+        "y": -14.374008178710938,
+        "z": -9.405070304870605,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0_lev3",
+        "x": -6.918415069580078,
+        "y": 2.0353188514709473,
+        "z": -11.880037307739258,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0.001_lev3",
+        "x": -14.89566707611084,
+        "y": 2.0353188514709473,
+        "z": 9.00496768951416,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0.002_lev3",
+        "x": 14.940898895263672,
+        "y": 1.9231709241867065,
+        "z": -16.629070281982422,
+        "level": 3,
+        "role": "default"
+    }
+]

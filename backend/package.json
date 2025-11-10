@@ -3,20 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev" : "node app.js",
+    "dev": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Este repositorio contiene el backend del proyecto interactivo en primera persona, desarrollado como una API RESTful utilizando **Node.js**, **Express** y **MongoDB**, y estructurado bajo el patrón arquitectónico **MVC (Modelo - Vista - Controlador)**.",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
-    "mongoose": "^8.13.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.3",
     "node-fetch": "^3.3.2",
     "socket.io": "^4.8.1"
-  }
+  },
+  "type": "commonjs"
 }

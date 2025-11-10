@@ -1,0 +1,394 @@
+[
+    {
+        "name": "building-a_lev1",
+        "x": 9.318333625793457,
+        "y": 0.0,
+        "z": -9.797852516174316,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-b_lev1",
+        "x": 3.542842388153076,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-c_lev1",
+        "x": -10.66341495513916,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-d_lev1",
+        "x": 5.8337483406066895,
+        "y": 0.0,
+        "z": 5.561374664306641,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-e_lev1",
+        "x": 8.845349311828613,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-f_lev1",
+        "x": 11.259921073913574,
+        "y": 0.0,
+        "z": -5.287147045135498,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-g_lev1",
+        "x": -9.382611274719238,
+        "y": 0.0,
+        "z": 5.354636192321777,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-h_lev1",
+        "x": 5.980010986328125,
+        "y": 0.0,
+        "z": -7.008603572845459,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-i_lev1",
+        "x": -3.9880950450897217,
+        "y": 0.0,
+        "z": 7.135072708129883,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-j_lev1",
+        "x": -5.676366806030273,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-k_lev1",
+        "x": -5.779455661773682,
+        "y": 0.0,
+        "z": -2.4542593955993652,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-l_lev1",
+        "x": -5.8462042808532715,
+        "y": 0.0,
+        "z": 2.7230465412139893,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m_lev1",
+        "x": -5.346464157104492,
+        "y": 0.0,
+        "z": -7.366352558135986,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-n_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -5.2205305099487305,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a_lev1",
+        "x": -11.162116050720215,
+        "y": 0.0,
+        "z": -4.551608085632324,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-b_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -8.768001556396484,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-c_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 5.614484786987305,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d_lev1",
+        "x": 6.4312920570373535,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-e_lev1",
+        "x": 3.4667911529541016,
+        "y": 0.0,
+        "z": 5.8155412673950195,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-awning_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-awning-wide_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-overhang_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-overhang-wide_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-b_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-a_lev1",
+        "x": 11.30880069732666,
+        "y": 0.0,
+        "z": 4.9182515144348145,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-b_lev1",
+        "x": -8.263486862182617,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-c_lev1",
+        "x": -12.934700012207031,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-d_lev1",
+        "x": 14.344972610473633,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-e_lev1",
+        "x": 16.59615135192871,
+        "y": 0.0,
+        "z": -5.131755352020264,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-f_lev1",
+        "x": 19.596054077148438,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-g_lev1",
+        "x": 2.703481912612915,
+        "y": 0.0,
+        "z": -10.234652519226074,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-h_lev1",
+        "x": 15.938251495361328,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-i_lev1",
+        "x": -1.843883752822876,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-j_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 8.164011001586914,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-k_lev1",
+        "x": -5.629616737365723,
+        "y": 0.0,
+        "z": 9.560917854309082,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-l_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -11.021871566772461,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-m_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -12.956073760986328,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-n_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-wide-a_lev1",
+        "x": -2.7358598709106445,
+        "y": 0.0,
+        "z": -8.762773513793945,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "low-detail-building-wide-b_lev1",
+        "x": 11.835875511169434,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cube_lev1",
+        "x": -5.529314994812012,
+        "y": 1.238703727722168,
+        "z": -14.800456047058105,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cube.001_lev1",
+        "x": -11.883330345153809,
+        "y": 1.268571376800537,
+        "z": -15.002349853515625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cube.002_lev1",
+        "x": -1.946211338043213,
+        "y": 1.257283091545105,
+        "z": -14.879010200500488,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cube.003_lev1",
+        "x": -8.67922306060791,
+        "y": 1.296460747718811,
+        "z": -14.92817497253418,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0_lev1",
+        "x": 18.156850814819336,
+        "y": 2.2354416847229004,
+        "z": -10.025790214538574,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0.001_lev1",
+        "x": 2.4661712646484375,
+        "y": 2.2354419231414795,
+        "z": -23.041547775268555,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0.002_lev1",
+        "x": -20.892881393432617,
+        "y": 2.2354419231414795,
+        "z": -8.442089080810547,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0.003_lev1",
+        "x": -19.91843032836914,
+        "y": 2.295731544494629,
+        "z": 13.660850524902344,
+        "level": 1,
+        "role": "default"
+    }
+]

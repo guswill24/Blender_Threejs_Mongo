@@ -3,7 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const blockRoutes = require('./routes/blockRoutes')
-
+const authRoutes = require('./routes/authRoutes') // NUEVO
 
 const app = express()
 const port = process.env.PORT || 3001
@@ -15,35 +15,30 @@ app.get('/', (req, res) => {
     res.send(`
         <h1>API de bloques</h1>
         <p>Usa la ruta /blocks para interactuar con los bloques.</p>
+        <p>Usa la ruta /auth para registrar o loguear usuarios.</p>
         <p>Ejemplo de uso en el puerto ${port}:</p>
-        `)
+    `)
 });
 
 // Rutas
-//app.use('/blocks', blockRoutes)
 app.use('/api/blocks', blockRoutes)
+app.use('/api/auth', authRoutes) // NUEVO
 
 mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log('✅ Conectado a MongoDB')
-    })
+    .then(() => console.log('✅ Conectado a MongoDB'))
     .catch(err => console.error('Error al conectar a MongoDB:', err))
 
 /**
- * Implementacion experiencia multijugador
+ * Implementación experiencia multijugador
  */
+const http = require('http')
+const socketio = require('socket.io')
 
-const http = require('http');
-const socketio = require('socket.io');
-
-const server = http.createServer(app); // usamos el mismo `app` existente
+const server = http.createServer(app)
 const io = socketio(server, {
-    cors: {
-        origin: '*'
-    }
-});
+    cors: { origin: '*' }
+})
 
-// Almacén temporal de jugadores
 let players = {}
 
 io.on('connection', (socket) => {
@@ -59,18 +54,9 @@ io.on('connection', (socket) => {
             color: data.color || '#ffffff'
         }
 
-        // Notificar a los demás jugadores
-        socket.broadcast.emit('spawn-player', {
-            id: socket.id,
-            position: players[socket.id].position,
-            rotation: players[socket.id].rotation,
-            color: players[socket.id].color
-        })
-
-        // Enviar al nuevo jugador la lista de jugadores ya conectados
+        socket.broadcast.emit('spawn-player', players[socket.id])
         socket.emit('players-update', players)
 
-        // Enviar al nuevo jugador los que ya estaban conectados
         const others = Object.entries(players)
             .filter(([id]) => id !== socket.id)
             .map(([id, info]) => ({
@@ -79,9 +65,7 @@ io.on('connection', (socket) => {
                 rotation: info.rotation,
                 color: info.color
             }))
-
         socket.emit('existing-players', others)
-
     })
 
     socket.on('update-position', ({ position, rotation }) => {
@@ -98,22 +82,12 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         console.log(`🔴 Usuario desconectado: ${socket.id}`)
-      
         delete players[socket.id]
-      
-        // 🧼 Notificar a todos para eliminar al jugador desconectado
         io.emit('remove-player', socket.id)
-      
-        // 🟡 Opcional: actualizar la lista completa
         io.emit('players-update', players)
-      })
-      
+    })
 })
 
-
-// Escucha en el puerto como siempre
-const PORT = process.env.PORT || 3001;
-server.listen(PORT, () => {
-    console.log(`✅ Servidor corriendo en puerto ${PORT}`);
-});
-
+server.listen(port, () => {
+    console.log(`✅ Servidor corriendo en puerto ${port}`)
+})

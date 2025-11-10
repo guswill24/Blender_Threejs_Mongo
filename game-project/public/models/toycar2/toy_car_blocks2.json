@@ -1,0 +1,322 @@
+[
+    {
+        "name": "corridor_lev2",
+        "x": 7.550528049468994,
+        "y": 0.0,
+        "z": 19.126209259033203,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "corridor-corner_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "corridor-end_lev2",
+        "x": 21.804065704345703,
+        "y": 0.0,
+        "z": 31.507150650024414,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "corridor-intersection_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "corridor-junction_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "corridor-transition_lev2",
+        "x": -11.166017532348633,
+        "y": 0.0,
+        "z": -12.154666900634766,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "corridor-wide_lev2",
+        "x": -21.194202423095703,
+        "y": 0.0,
+        "z": -12.070281982421875,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "corridor-wide-corner_lev2",
+        "x": 27.913063049316406,
+        "y": 0.0,
+        "z": 29.724994659423828,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "corridor-wide-end_lev2",
+        "x": 19.945602416992188,
+        "y": 0.0,
+        "z": 21.710281372070312,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "corridor-wide-intersection_lev2",
+        "x": -0.24486662447452545,
+        "y": 0.0,
+        "z": 18.916608810424805,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "corridor-wide-junction_lev2",
+        "x": -0.24486662447452545,
+        "y": 0.0,
+        "z": 18.916608810424805,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "gate_lev2",
+        "x": 8.713128089904785,
+        "y": 0.0,
+        "z": 33.62648010253906,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "gate-door_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "gate-door-window_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "room-corner_lev2",
+        "x": -27.697166442871094,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "room-large_lev2",
+        "x": 22.83473014831543,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "room-large-variation_lev2",
+        "x": -23.90850830078125,
+        "y": 0.0,
+        "z": 18.916608810424805,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "room-small_lev2",
+        "x": -0.24486662447452545,
+        "y": 0.0,
+        "z": 18.916608810424805,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "room-small-variation_lev2",
+        "x": -0.24486662447452545,
+        "y": 0.0,
+        "z": -13.727758407592773,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "room-wide_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -25.706748962402344,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "room-wide-variation_lev2",
+        "x": 21.777070999145508,
+        "y": 0.0,
+        "z": -25.1106014251709,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "stairs_lev2",
+        "x": 26.643310546875,
+        "y": 0.0,
+        "z": -0.12441062927246094,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "stairs-wide_lev2",
+        "x": 17.600990295410156,
+        "y": 0.0,
+        "z": -0.47153663635253906,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-corner_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-detail_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-floor_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-floor-big_lev2",
+        "x": 27.915058135986328,
+        "y": 0.0,
+        "z": 21.595600128173828,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-floor-detail_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-floor-detail-a_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-floor-layer_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-floor-layer-raised_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-wall_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-wall-corner_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-wall-detail-a_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-wall-half_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-wall-stairs_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "template-wall-top_lev2",
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.0,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0_lev2",
+        "x": 27.732898712158203,
+        "y": 0.6094237565994263,
+        "z": 27.083913803100586,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0.001_lev2",
+        "x": -23.47178077697754,
+        "y": 0.7176756262779236,
+        "z": 17.544330596923828,
+        "level": 2,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0.002_lev2",
+        "x": 4.8760271072387695,
+        "y": 1.8821057081222534,
+        "z": -28.080862045288086,
+        "level": 2,
+        "role": "default"
+    }
+]

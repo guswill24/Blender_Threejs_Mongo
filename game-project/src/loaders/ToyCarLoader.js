@@ -10,99 +10,20 @@ export default class ToyCarLoader {
         this.resources = this.experience.resources;
         this.physics = this.experience.physics;
         this.prizes = [];
-    }
+        this.loadedObjects = [];
+        this.physicsBodies = [];
+        this.currentLevel = 1;
 
-    _applyTextureToMeshes(root, imagePath, matcher, options = {}) {
-        // Pre-chequeo: buscar meshes objetivo antes de cargar la textura
-        const matchedMeshes = [];
-        root.traverse((child) => {
-            if (child.isMesh && (!matcher || matcher(child))) {
-                matchedMeshes.push(child);
-            }
-        });
-
-        if (matchedMeshes.length === 0) {
-            // Evitar ruido en consola si no hay objetivos en este modelo
-            // console.debug(`Sin meshes objetivo para ${imagePath} en este modelo.`)
-            return;
-        }
-
-        const textureLoader = new THREE.TextureLoader();
-        textureLoader.load(
-            imagePath,
-            (texture) => {
-                if ('colorSpace' in texture) {
-                    texture.colorSpace = THREE.SRGBColorSpace;
-                } else {
-                    texture.encoding = THREE.sRGBEncoding;
-                }
-                texture.flipY = false;
-                const wrapS = options.wrapS || THREE.ClampToEdgeWrapping;
-                const wrapT = options.wrapT || THREE.ClampToEdgeWrapping;
-                texture.wrapS = wrapS;
-                texture.wrapT = wrapT;
-                const maxAniso = this.experience?.renderer?.instance?.capabilities?.getMaxAnisotropy?.();
-                if (typeof maxAniso === 'number' && maxAniso > 0) {
-                    texture.anisotropy = maxAniso;
-                }
-                const center = options.center || { x: 0.5, y: 0.5 };
-                texture.center.set(center.x, center.y);
-                if (typeof options.rotation === 'number') {
-                    texture.rotation = options.rotation;
-                }
-                if (options.repeat) {
-                    texture.repeat.set(options.repeat.x || 1, options.repeat.y || 1);
-                }
-                // Espejado opcional
-                if (options.mirrorX) {
-                    texture.wrapS = THREE.RepeatWrapping;
-                    texture.repeat.x = -Math.abs(texture.repeat.x || 1);
-                    texture.offset.x = 1;
-                }
-                if (options.mirrorY) {
-                    texture.wrapT = THREE.RepeatWrapping;
-                    texture.repeat.y = -Math.abs(texture.repeat.y || 1);
-                    texture.offset.y = 1;
-                }
-                if (options.offset) {
-                    texture.offset.set(
-                        options.offset.x ?? texture.offset.x,
-                        options.offset.y ?? texture.offset.y
-                    );
-                }
-                texture.needsUpdate = true;
-
-                let applied = 0;
-                matchedMeshes.forEach((child) => {
-                    if (Array.isArray(child.material)) {
-                        child.material.forEach((mat) => {
-                            mat.map = texture;
-                            mat.needsUpdate = true;
-                        });
-                    } else if (child.material) {
-                        child.material.map = texture;
-                        child.material.needsUpdate = true;
-                    } else {
-                        child.material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
-                    }
-                    applied++;
-                });
-
-                if (applied === 0) {
-                    // console.debug(`Sin meshes para aplicar textura: ${imagePath}`);
-                } else {
-                    console.log(`🖼️ Textura aplicada (${imagePath}) a ${applied} mesh(es)`);
-                }
-            },
-            undefined,
-            (err) => {
-                console.error('❌ Error cargando textura', imagePath, err);
-            }
-        );
+        this.collectedCoins = 0;
+        this.totalCoins = 4;
+        this.portal = null;
+        this.portalEffect = null;
     }
 
     async loadFromAPI() {
         try {
+            console.log(`🎯 ===== INICIANDO CARGA DE NIVEL ${this.currentLevel} =====`);
+            
             const listRes = await fetch('/config/precisePhysicsModels.json');
             const precisePhysicsModels = await listRes.json();
 
@@ -110,125 +31,107 @@ export default class ToyCarLoader {
 
             try {
                 const apiUrl = import.meta.env.VITE_API_URL + '/api/blocks';
+                console.log(`🌐 Consultando API: ${apiUrl}`);
                 const res = await fetch(apiUrl);
-
                 if (!res.ok) throw new Error('Conexión fallida');
+                const allBlocks = await res.json();
 
-                blocks = await res.json();
-                console.log('Datos cargados desde la API:', blocks.length);
-                //console.log('🧩 Lista de bloques:', blocks.map(b => b.name))
-            } catch (apiError) {
-                console.warn('No se pudo conectar con la API. Cargando desde archivo local...');
+                blocks = allBlocks.filter(b => b.level === this.currentLevel);
+            } catch {
+                console.warn('⚠️ No se pudo conectar con la API. Cargando desde archivo local...');
                 const localRes = await fetch('/data/toy_car_blocks.json');
                 const allBlocks = await localRes.json();
-
-                // 🔍 Filtrar solo nivel 1
-                blocks = allBlocks.filter(b => b.level === 1);
-                console.log(`Datos cargados desde archivo local (nivel 1): ${blocks.length}`);
-
+                blocks = allBlocks.filter(b => b.level === this.currentLevel);
             }
 
             this._processBlocks(blocks, precisePhysicsModels);
+            console.log(`🎯 ===== FIN DE CARGA DE NIVEL ${this.currentLevel} =====`);
         } catch (err) {
-            console.error('Error al cargar bloques o lista Trimesh:', err);
-        }
-    }
-
-    async loadFromURL(apiUrl) {
-        try {
-            const listRes = await fetch('/config/precisePhysicsModels.json');
-            const precisePhysicsModels = await listRes.json();
-
-            const res = await fetch(apiUrl);
-            if (!res.ok) throw new Error('Conexión fallida al cargar bloques de nivel.');
-
-            const blocks = await res.json();
-            console.log(`📦 Bloques cargados (${blocks.length}) desde ${apiUrl}`);
-
-            this._processBlocks(blocks, precisePhysicsModels);
-        } catch (err) {
-            console.error('Error al cargar bloques desde URL:', err);
+            console.error('❌ Error al cargar bloques o lista Trimesh:', err);
         }
     }
 
     _processBlocks(blocks, precisePhysicsModels) {
-        blocks.forEach(block => {
-            if (!block.name) {
-                console.warn('Bloque sin nombre:', block);
-                return;
-            }
+        console.log(`🔧 Procesando ${blocks.length} bloques...`);
+
+        let coinsCount = 0;
+        let objectsCount = 0;
+        let portalCount = 0;
+
+        blocks.forEach((block, index) => {
+            if (!block.name) return;
 
             const resourceKey = block.name;
-            const glb = this.resources.items[resourceKey];
-
-            if (!glb) {
-                console.warn(`Modelo no encontrado: ${resourceKey}`);
-                return;
-            }
+            const glb = this.resources.items[resourceKey] || this.resources.items['portalModel'];
+            if (!glb) return;
 
             const model = glb.scene.clone();
-
-            //  MARCAR modelo como perteneciente al nivel
             model.userData.levelObject = true;
 
-            // Eliminar cámaras y luces embebidas
             model.traverse((child) => {
                 if (child.isCamera || child.isLight) {
                     child.parent.remove(child);
                 }
             });
 
-            //  Manejo de carteles: aplicar textura a meshes
-            this._applyTextureToMeshes(
-                model,
-                '/textures/ima1.jpg',
-                (child) => child.name === 'Cylinder001' || (child.name && child.name.toLowerCase().includes('cylinder')),
-                { rotation: -Math.PI / 2, center: { x: 0.5, y: 0.5 }, mirrorX: true }
-            );
+            // 🌀 PORTAL FIJO EN EL SUELO (sin rotar)
+            if (block.name === 'final_prize') {
+                console.log(`🔮 Portal (final_prize) en posición (${block.x}, ${block.y}, ${block.z})`);
 
-            //  Integración especial para modelos baked
-            if (block.name.includes('baked')) {
-                const bakedTexture = new THREE.TextureLoader().load('/textures/baked.jpg');
-                bakedTexture.flipY = false;
-                if ('colorSpace' in bakedTexture) {
-                    bakedTexture.colorSpace = THREE.SRGBColorSpace;
-                } else {
-                    bakedTexture.encoding = THREE.sRGBEncoding;
+                const portalModel = this.resources.items['portalModel']?.scene?.clone();
+                if (!portalModel) {
+                    console.error('❌ No se encontró el modelo portalModel en resources.');
+                    return;
                 }
 
-                model.traverse(child => {
-                    if (child.isMesh) {
-                        child.material = new THREE.MeshBasicMaterial({ map: bakedTexture });
-                        child.material.needsUpdate = true;
+                portalModel.name = 'portalModel';
+                portalModel.visible = false;
+                portalModel.scale.set(2, 2, 2);
+                portalModel.position.set(block.x, block.y, block.z);
 
-                        if (child.name.toLowerCase().includes('portal')) {
-                            this.experience.time.on('tick', () => {
-                                child.rotation.y += 0.01;
-                            });
-                        }
-                    }
-                });
+                // Asegurar que esté apoyado en el suelo
+                const bbox = new THREE.Box3().setFromObject(portalModel);
+                const size = new THREE.Vector3();
+                const center = new THREE.Vector3();
+                bbox.getCenter(center);
+                bbox.getSize(size);
+                portalModel.position.y -= center.y - size.y / 2;
+
+                this.portal = portalModel;
+                this.scene.add(portalModel);
+                this.loadedObjects.push(portalModel);
+                portalCount++;
+                return;
             }
 
-            //  Si es un premio (coin)
+            // 🪙 MONEDAS MÁS PEQUEÑAS
             if (block.name.startsWith('coin')) {
-                // console.log('🧪 Revisando coin desde API:', block)
+                console.log(`🪙 Cargando moneda: ${block.name} en (${block.x}, ${block.y}, ${block.z})`);
+                
+                // Escalar la moneda
+                model.scale.set(0.5, 0.5, 0.5);
+
                 const prize = new Prize({
                     model,
                     position: new THREE.Vector3(block.x, block.y, block.z),
                     scene: this.scene,
-                    role: block.role || "default"
+                    role: block.role || "coin"
                 });
 
-                // 🔵 MARCAR modelo del premio
-                prize.model.userData.levelObject = true;
+                prize.onCollect = () => {
+                    this._onCoinCollected();
+                };
 
                 this.prizes.push(prize);
-                //this.scene.add(prize.model);
+                coinsCount++;
                 return;
             }
 
+            // 🔸 OBJETOS NORMALES
+            model.position.set(block.x, block.y, block.z);
             this.scene.add(model);
+            this.loadedObjects.push(model);
+            objectsCount++;
 
             // Físicas
             let shape;
@@ -236,10 +139,7 @@ export default class ToyCarLoader {
 
             if (precisePhysicsModels.includes(block.name)) {
                 shape = createTrimeshShapeFromModel(model);
-                if (!shape) {
-                    console.warn(`No se pudo crear Trimesh para ${block.name}`);
-                    return;
-                }
+                if (!shape) return;
                 position.set(0, 0, 0);
             } else {
                 shape = createBoxShapeFromModel(model, 0.9);
@@ -254,17 +154,98 @@ export default class ToyCarLoader {
 
             const body = new CANNON.Body({
                 mass: 0,
-                shape: shape,
+                shape,
                 position: new CANNON.Vec3(position.x, position.y, position.z),
                 material: this.physics.obstacleMaterial
             });
 
-            // 🔵 MARCAR cuerpo físico
             body.userData = { levelObject: true };
             model.userData.physicsBody = body;
             body.userData.linkedModel = model;
             this.physics.world.addBody(body);
+            this.physicsBodies.push(body);
+        });
+
+        console.log(`📊 Cargados: 🪙${coinsCount} monedas, 🏗️${objectsCount} objetos, 🌀${portalCount} portales`);
+    }
+
+    _onCoinCollected() {
+        this.collectedCoins++;
+        console.log(`🪙 Moneda recogida ${this.collectedCoins}/${this.totalCoins}`);
+
+        if (this.collectedCoins >= this.totalCoins) {
+            this._activateFinalPortal();
+        }
+    }
+
+    // 🚪 PORTAL ESTÁTICO, SIN ROTAR
+    _activateFinalPortal() {
+        if (!this.portal) {
+            console.warn("⚠️ Portal no encontrado en la escena.");
+            return;
+        }
+
+        this.portal.visible = true;
+        this.portal.userData.isActive = true;
+
+        // ✨ Efecto circular en el suelo (quieto)
+        const geometry = new THREE.RingGeometry(2, 2.5, 32);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0x00ffff,
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.6
+        });
+        const ring = new THREE.Mesh(geometry, material);
+        ring.rotation.x = -Math.PI / 2;
+        ring.position.copy(this.portal.position);
+        ring.position.y += 0.1;
+        this.scene.add(ring);
+        this.portalEffect = ring;
+        this.loadedObjects.push(ring);
+
+        console.log("🌀 Portal activado (estático en el suelo)");
+
+        // 🔹 Solo el efecto brilla un poco, pero sin mover el portal
+        this.experience.time.on('tick', () => {
+            if (this.portal?.userData?.isActive && this.portalEffect) {
+                this.portalEffect.material.opacity = 0.4 + Math.sin(Date.now() * 0.002) * 0.2;
+            }
         });
     }
 
+    clear() {
+        console.log(`🧹 ===== LIMPIEZA DE NIVEL ${this.currentLevel} =====`);
+
+        this.prizes.forEach(prize => {
+            if (prize && !prize.collected) prize.destroy();
+        });
+        this.prizes = [];
+
+        this.loadedObjects.forEach(obj => {
+            if (obj && obj.parent) obj.parent.remove(obj);
+            obj.traverse(child => {
+                if (child.geometry) child.geometry.dispose();
+                if (child.material) {
+                    if (Array.isArray(child.material)) {
+                        child.material.forEach(mat => mat.dispose());
+                    } else {
+                        child.material.dispose();
+                    }
+                }
+            });
+        });
+        this.loadedObjects = [];
+
+        this.physicsBodies.forEach(body => {
+            if (body && this.physics.world) this.physics.world.removeBody(body);
+        });
+        this.physicsBodies = [];
+
+        this.collectedCoins = 0;
+        this.portal = null;
+        this.portalEffect = null;
+
+        console.log(`✅ LIMPIEZA COMPLETA`);
+    }
 }

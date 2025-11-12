@@ -13,6 +13,7 @@ import BlockPrefab from "./BlockPrefab.js";
 import FinalPrizeParticles from "../Utils/FinalPrizeParticles.js";
 import Enemy from "./Enemy.js";
 import Prize from "./Prize.js";
+import GameAuthManager from "../../GameAuthManager.js";
 
 export default class World {
   constructor(experience) {
@@ -28,6 +29,9 @@ export default class World {
     this.portalLevelType = null;
     this.debug = true; // activa logs de depuración
 
+    // Para detectar cambios de nivel y respawnear enemigos
+    this.lastLevel = null;
+
     // Sonidos
     this.coinSound = new Sound("/sounds/coin.ogg");
     this.ambientSound = new AmbientSound("/sounds/ambiente.mp3");
@@ -40,6 +44,7 @@ export default class World {
       this.allowPrizePickup = true;
     }, 2000);
 
+    // Cuando los recursos estén listos inicializamos elementos
     this.resources.on("ready", async () => {
       this.floor = new Floor(this.experience);
       this.environment = new Environment(this.experience);
@@ -51,19 +56,24 @@ export default class World {
       // Ajustar monedas del nivel 2
       this._adjustLevel2CoinsPosition();
 
-      // Enemigos: plantilla GLB (solo como recurso, no se agrega directamente a la escena)
+      // Validación de recurso de enemigos
       const enemiesModelResource = this.resources.items["enemiesModel"];
       if (!enemiesModelResource) {
         console.error('⚠️ No se encontró el modelo de enemigos "enemiesModel"');
         return;
       }
 
-      // Spawneamos enemigos
-      const enemiesCount = parseInt(
+      // Determinar cantidad base desde la env var (si existe) o usar 3 por defecto.
+      const baseEnemiesCount = parseInt(
         import.meta.env.VITE_ENEMIES_COUNT || "3",
         10
       );
-      this.spawnEnemies(enemiesCount);
+
+      // Spawn inicial según el nivel actual (si el nivel aún no está definido, usa valores por defecto)
+      const initialLevel = this.levelManager?.currentLevel ?? 1;
+      this.lastLevel = initialLevel;
+      const initialCount = this._computeSpawnCountForLevel(initialLevel, baseEnemiesCount);
+      this.spawnEnemies(initialCount);
 
       // Cámara y controles
       this.experience.vr.bindCharacter(this.robot);
@@ -96,6 +106,16 @@ export default class World {
     });
   }
 
+  // Compute spawn count given the base count and the current level.
+  // IMPORTANT: no cambiamos el valor base; simplemente sumamos +2 para nivel 2 y 3.
+  _computeSpawnCountForLevel(level, baseCount) {
+    let count = typeof baseCount === "number" ? baseCount : 3;
+    if (level === 2 || level === 3) {
+      count = count + 2; // añadimos exactamente 2 enemigos extra en nivel 2 y 3
+    }
+    return count;
+  }
+
   spawnEnemies(count = 0) {
     if (!this.robot?.body) {
       if (this.debug) console.warn("spawnEnemies: robot no listo");
@@ -115,6 +135,9 @@ export default class World {
     const playerPos = this.robot.body.position;
     const minRadius = 25;
     const maxRadius = 40;
+
+    // Determinar si estamos en nivel 3 para aplicar velocidad aumentada
+    const isLevel3 = this.levelManager?.currentLevel === 3;
 
     for (let i = 0; i < count; i++) {
       const angle = Math.random() * Math.PI * 2;
@@ -137,18 +160,59 @@ export default class World {
 
       enemy.delayActivation = 1.0 + i * 0.5;
       enemy.isGhost = false;
+
+      // Si estamos en nivel 3, hacemos que vayan más rápido (multiplicador usado en update)
+      enemy.speedMultiplier = isLevel3 ? 8.0 : 1.0;
+
       this.enemies.push(enemy);
     }
 
     if (this.debug)
-      console.log(`spawnEnemies: se crearon ${this.enemies.length} enemigos`);
+      console.log(`spawnEnemies: se crearon ${this.enemies.length} enemigos (nivel ${this.levelManager?.currentLevel ?? "?"})`);
   }
 
   update(delta) {
     this.fox?.update();
     this.robot?.update();
     this.blockPrefab?.update();
-    if (this.gameStarted) this.enemies?.forEach((e) => e.update(delta));
+
+    // --- Detectar cambio de nivel y respawnear enemigos si es necesario ---
+    const currentLevel = this.levelManager?.currentLevel ?? 1;
+
+    // Aseguramos baseEnemiesCount consistente (misma lógica que usamos en ready)
+    const baseEnemiesCount = parseInt(
+      import.meta.env.VITE_ENEMIES_COUNT || "3",
+      10
+    );
+
+    if (this.lastLevel === null) {
+      this.lastLevel = currentLevel;
+    } else if (currentLevel !== this.lastLevel) {
+      // Respawnear enemigos según nuevo nivel, sumando +2 si el nivel es 2 o 3
+      const newCount = this._computeSpawnCountForLevel(currentLevel, baseEnemiesCount);
+      if (this.debug) {
+        console.log(`Nivel cambiado: ${this.lastLevel} -> ${currentLevel}. Respawneando ${newCount} enemigos (base ${baseEnemiesCount} + extras si aplica).`);
+      }
+      this.spawnEnemies(newCount);
+      this.lastLevel = currentLevel;
+    }
+    // --------------------------------------------------------------------
+
+    if (this.gameStarted) {
+      this.enemies?.forEach((e) => {
+        // Si el enemigo define un multiplicador de velocidad, lo aplicamos aquí (sin asumir detalles internos del Enemy)
+        const mul = typeof e.speedMultiplier === "number" ? e.speedMultiplier : 1.0;
+        // Llamamos update pasando delta ajustado
+        try {
+          e.update(delta * mul);
+        } catch (err) {
+          // En caso de que Enemy.update no tolere el delta ajustado, caemos a la llamada estándar
+          if (this.debug) console.warn("Error actualizando enemigo con multiplicador, llamando e.update(delta) sin multiplicar:", err);
+          try { e.update(delta); } catch (err2) { /* silent */ }
+        }
+      });
+    }
+
     if (
       this.thirdPersonCamera &&
       this.experience.isThirdPerson &&
@@ -254,6 +318,37 @@ export default class World {
     if (this.portalLevelType === 3 && this.levelManager.currentLevel === 3) {
       const elapsed = this.experience.tracker.stop();
       this.experience.tracker.saveTime(elapsed);
+
+      // Enviar el puntaje final a la API para guardarlo en Mongo
+      const level = this.levelManager.currentLevel || this.portalLevelType || 3;
+      const finalScore = typeof this.points === "number" ? this.points : 0;
+
+      if (this.debug) {
+        console.log(
+          `🏆 Nivel completado: Level ${level}, Score: ${finalScore}, Tiempo: ${elapsed}s`
+        );
+      }
+
+      GameAuthManager.saveScore(finalScore, level, elapsed, "Ganador")
+        .then((resp) => {
+          console.log("✅ Puntaje guardado en Mongo:", resp);
+          if (
+            this.experience.menu &&
+            typeof this.experience.menu.setStatus === "function"
+          ) {
+            this.experience.menu.setStatus(
+              "🎉 Puntaje guardado en el leaderboard"
+            );
+          }
+        })
+        .catch((err) => {
+          console.warn(
+            "⚠️ Error guardando puntaje en Mongo:",
+            err.message || err
+          );
+          // No interrumpir la experiencia de fin de juego
+        });
+
       this.experience.tracker.showEndGameModal(elapsed);
       if (window.userInteracted && this.winner) this.winner.play();
       return;

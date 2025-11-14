@@ -1,0 +1,194 @@
+[
+    {
+        "name": "bench-short_lev3",
+        "x": 20.512588500976562,
+        "y": 0.0,
+        "z": -2.2405638694763184,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-door-rotate_lev3",
+        "x": 4.781909942626953,
+        "y": 0.0,
+        "z": 1.7106115818023682,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-doorway-center_lev3",
+        "x": 4.693367958068848,
+        "y": 0.2784106731414795,
+        "z": 1.1208891868591309,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-roof-dormer_lev3",
+        "x": -7.561051368713379,
+        "y": 0.0,
+        "z": 11.850443840026855,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-roof-point_lev3",
+        "x": 4.717184543609619,
+        "y": 6.856362342834473,
+        "z": 4.058239936828613,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "cabin-roof-snow-dormer_lev3",
+        "x": 11.846748352050781,
+        "y": 0.0,
+        "z": 13.622037887573242,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "festivus-pole_lev3",
+        "x": 2.5683929920196533,
+        "y": 0.0,
+        "z": -9.637940406799316,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "nutcracker_lev3",
+        "x": 16.723854064941406,
+        "y": 0.8333761692047119,
+        "z": 2.7520041465759277,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "reindeer_lev3",
+        "x": -5.197894096374512,
+        "y": 0.0,
+        "z": -6.326932907104492,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "rocks-large_lev3",
+        "x": 21.332311630249023,
+        "y": 0.12151086330413818,
+        "z": -29.42776870727539,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "rocks-medium_lev3",
+        "x": 5.525474548339844,
+        "y": 0.0,
+        "z": -31.962371826171875,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "snow-flat-large_lev3",
+        "x": -15.20793628692627,
+        "y": 0.0,
+        "z": -28.577301025390625,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "snowman_lev3",
+        "x": -9.520140647888184,
+        "y": 0.0,
+        "z": 2.888347625732422,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "snowman-hat_lev3",
+        "x": -22.48324203491211,
+        "y": 0.0,
+        "z": -6.339658737182617,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated_lev3",
+        "x": -21.045276641845703,
+        "y": 2.001697540283203,
+        "z": -29.7222843170166,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-snow-b_lev3",
+        "x": 23.22379493713379,
+        "y": 0.0,
+        "z": -13.969278335571289,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "wreath-decorated_lev3",
+        "x": -17.35831642150879,
+        "y": -14.374008178710938,
+        "z": -9.405070304870605,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0_lev3",
+        "x": -20.140378952026367,
+        "y": 2.0353188514709473,
+        "z": -27.2376766204834,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0.001_lev3",
+        "x": -18.353002548217773,
+        "y": 2.0353188514709473,
+        "z": 12.855881690979004,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "coinobj_coin_0.002_lev3",
+        "x": 22.27223014831543,
+        "y": 1.9231709241867065,
+        "z": 10.564250946044922,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated.001_lev3",
+        "x": 12.911979675292969,
+        "y": 0.0,
+        "z": -7.52092170715332,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated.002_lev3",
+        "x": -17.701448440551758,
+        "y": 0.0,
+        "z": 5.349050998687744,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated.003_lev3",
+        "x": 2.091559410095215,
+        "y": 0.0,
+        "z": 16.01805305480957,
+        "level": 3,
+        "role": "default"
+    },
+    {
+        "name": "tree-decorated.004_lev3",
+        "x": 21.257022857666016,
+        "y": 0.0,
+        "z": 15.525235176086426,
+        "level": 3,
+        "role": "default"
+    }
+]

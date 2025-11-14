@@ -21,7 +21,7 @@ export default class Robot {
 
     setModel() {
         this.model = this.resources.items.robotModel.scene
-        this.model.scale.set(0.3, 0.3, 0.3)
+        this.model.scale.set(3.0, 3.0, 3.0)
         this.model.position.set(0, -0.1, 0) // Centrar respecto al cuerpo físico
 
         this.group = new THREE.Group()
@@ -36,13 +36,11 @@ export default class Robot {
     }
 
     setPhysics() {
-        //const shape = new CANNON.Box(new CANNON.Vec3(0.3, 0.5, 0.3))
         const shape = new CANNON.Sphere(0.4)
 
         this.body = new CANNON.Body({
             mass: 2,
             shape: shape,
-            //position: new CANNON.Vec3(4, 1, 0), // Apenas sobre el piso real (que termina en y=0)
             position: new CANNON.Vec3(0, 1.2, 0),
             linearDamping: 0.05,
             angularDamping: 0.9
@@ -55,17 +53,14 @@ export default class Robot {
         this.body.angularVelocity.setZero()
         this.body.sleep()
         this.body.material = this.physics.robotMaterial
-        //console.log(' Robot material:', this.body.material.name)
-
 
         this.physics.world.addBody(this.body)
-        //console.log(' Posición inicial del robot:', this.body.position)
+        
         // Activar cuerpo después de que el mundo haya dado al menos un paso de simulación
         setTimeout(() => {
             this.body.wakeUp()
-        }, 100) // 100 ms ≈ 6 pasos de simulación si step = 1/60
+        }, 100)
     }
-
 
     setSounds() {
         this.walkSound = new Sound('/sounds/robot/walking.mp3', { loop: true, volume: 0.5 })
@@ -76,45 +71,79 @@ export default class Robot {
         this.animation = {}
         this.animation.mixer = new THREE.AnimationMixer(this.model)
 
+        const animations = this.resources.items.robotModel.animations
+        
         this.animation.actions = {}
-        this.animation.actions.dance = this.animation.mixer.clipAction(this.resources.items.robotModel.animations[0])
-        this.animation.actions.death = this.animation.mixer.clipAction(this.resources.items.robotModel.animations[1])
-        this.animation.actions.idle = this.animation.mixer.clipAction(this.resources.items.robotModel.animations[2])
-        this.animation.actions.jump = this.animation.mixer.clipAction(this.resources.items.robotModel.animations[3])
-        this.animation.actions.walking = this.animation.mixer.clipAction(this.resources.items.robotModel.animations[10])
+        
+        // 🎬 Buscar animaciones por nombre
+        this.animation.actions.walk = this.findAnimation(animations, 'walk') || animations[10]
+        this.animation.actions.jump_start = this.findAnimation(animations, 'jump_start') || animations[3]
+        this.animation.actions.ragdoll = this.findAnimation(animations, 'ragdoll') || animations[1]
+        this.animation.actions.idle = this.findAnimation(animations, 'idle') || animations[2]
+        this.animation.actions.dance = this.findAnimation(animations, 'dance') || animations[0]
+        
+        // Configurar todas las acciones encontradas
+        Object.keys(this.animation.actions).forEach(key => {
+            if (this.animation.actions[key]) {
+                this.animation.actions[key] = this.animation.mixer.clipAction(this.animation.actions[key])
+            }
+        })
 
         this.animation.actions.current = this.animation.actions.idle
         this.animation.actions.current.play()
 
-        this.animation.actions.jump.setLoop(THREE.LoopOnce)
-        this.animation.actions.jump.clampWhenFinished = true
-        this.animation.actions.jump.onFinished = () => {
-            this.animation.play('idle')
+        // Configurar jump_start como animación de una sola vez
+        if (this.animation.actions.jump_start) {
+            this.animation.actions.jump_start.setLoop(THREE.LoopOnce)
+            this.animation.actions.jump_start.clampWhenFinished = true
+            this.animation.actions.jump_start.onFinished = () => {
+                this.animation.play('idle')
+            }
+        }
+
+        // Configurar ragdoll
+        if (this.animation.actions.ragdoll) {
+            this.animation.actions.ragdoll.setLoop(THREE.LoopOnce)
+            this.animation.actions.ragdoll.clampWhenFinished = true
         }
 
         this.animation.play = (name) => {
             const newAction = this.animation.actions[name]
             const oldAction = this.animation.actions.current
 
+            if (!newAction) {
+                console.warn(`⚠️ Animación "${name}" no encontrada`)
+                return
+            }
+
             newAction.reset()
             newAction.play()
             newAction.crossFadeFrom(oldAction, 0.3)
             this.animation.actions.current = newAction
 
-            if (name === 'walking') {
+            // Sonidos según animación
+            if (name === 'walk') {
                 this.walkSound.play()
             } else {
                 this.walkSound.stop()
             }
 
-            if (name === 'jump') {
+            if (name === 'jump_start') {
                 this.jumpSound.play()
             }
         }
     }
 
+    // 🔍 Método auxiliar para encontrar animación por nombre
+    findAnimation(animations, name) {
+        return animations.find(clip => 
+            clip.name.toLowerCase().includes(name.toLowerCase())
+        )
+    }
+
     update() {
-        if (this.animation.actions.current === this.animation.actions.death) return
+        if (this.animation.actions.current === this.animation.actions.ragdoll) return
+        
         const delta = this.time.delta * 0.001
         this.animation.mixer.update(delta)
 
@@ -128,24 +157,22 @@ export default class Robot {
         this.body.velocity.x = Math.max(Math.min(this.body.velocity.x, maxSpeed), -maxSpeed)
         this.body.velocity.z = Math.max(Math.min(this.body.velocity.z, maxSpeed), -maxSpeed)
 
-
-        // Salto
-        // Dirección hacia adelante, independientemente del salto o movimiento
+        // Dirección hacia adelante
         const forward = new THREE.Vector3(0, 0, 1).applyQuaternion(this.group.quaternion)
 
-        // Salto
+        // Salto con jump_start
         if (keys.space && this.body.position.y <= 0.51) {
             this.body.applyImpulse(new CANNON.Vec3(forward.x * 0.5, 3, forward.z * 0.5))
-            this.animation.play('jump')
+            this.animation.play('jump_start')
             return
         }
-        //No permitir que el robot salga del escenario
+
+        // No permitir que el robot salga del escenario
         if (this.body.position.y > 10) {
-            console.warn(' Robot fuera del escenario. Reubicando...')
+            console.warn('⚠️ Robot fuera del escenario. Reubicando...')
             this.body.position.set(0, 1.2, 0)
             this.body.velocity.set(0, 0, 0)
         }
-
 
         // Movimiento hacia adelante
         if (keys.up) {
@@ -179,11 +206,10 @@ export default class Robot {
             this.body.quaternion.setFromEuler(0, this.group.rotation.y, 0)
         }
 
-
-        // Animaciones según movimiento
+        // Animaciones según movimiento (usando walk)
         if (isMoving) {
-            if (this.animation.actions.current !== this.animation.actions.walking) {
-                this.animation.play('walking')
+            if (this.animation.actions.current !== this.animation.actions.walk) {
+                this.animation.play('walk')
             }
         } else {
             if (this.animation.actions.current !== this.animation.actions.idle) {
@@ -193,7 +219,6 @@ export default class Robot {
 
         // Sincronización física → visual
         this.group.position.copy(this.body.position)
-
     }
 
     // Método para mover el robot desde el exterior VR
@@ -208,13 +233,13 @@ export default class Robot {
             const dir2D = mobile.directionVector
             const dir3D = new THREE.Vector3(dir2D.x, 0, dir2D.y).normalize()
 
-            const adjustedSpeed = 250 * mobile.intensity // velocidad más fluida
+            const adjustedSpeed = 250 * mobile.intensity
             const force = new CANNON.Vec3(dir3D.x * adjustedSpeed, 0, dir3D.z * adjustedSpeed)
 
             this.body.applyForce(force, this.body.position)
 
-            if (this.animation.actions.current !== this.animation.actions.walking) {
-                this.animation.play('walking')
+            if (this.animation.actions.current !== this.animation.actions.walk) {
+                this.animation.play('walk')
             }
 
             // Rotar suavemente en dirección de avance
@@ -223,11 +248,12 @@ export default class Robot {
             this.body.quaternion.setFromEuler(0, this.group.rotation.y, 0)
         }
     }
+
     die() {
-        if (this.animation.actions.current !== this.animation.actions.death) {
+        if (this.animation.actions.current !== this.animation.actions.ragdoll) {
             this.animation.actions.current.fadeOut(0.2)
-            this.animation.actions.death.reset().fadeIn(0.2).play()
-            this.animation.actions.current = this.animation.actions.death
+            this.animation.actions.ragdoll.reset().fadeIn(0.2).play()
+            this.animation.actions.current = this.animation.actions.ragdoll
 
             this.walkSound.stop()
 
@@ -235,16 +261,13 @@ export default class Robot {
             if (this.physics.world.bodies.includes(this.body)) {
                 this.physics.world.removeBody(this.body)
             }
-            this.body = null  // prevenir referencias rotas
+            this.body = null
 
-            // Ajustes visuales (opcional)
+            // Ajustes visuales
             this.group.position.y -= 0.5
             this.group.rotation.x = -Math.PI / 2
 
-            console.log(' Robot ha muerto')
+            console.log('💀 Robot ha muerto (ragdoll)')
         }
     }
-
-
-
 }
